@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered",  # Page layout option
 )
 
-GOOGLE_API_KEY = "AIzaSyDFfw_oONfy9o1C9u55U1cnk53mnalIsvw"  # Replace "YOUR_GOOGLE_API_KEY_HERE" with your actual API key
+GOOGLE_API_KEY = "AIzaSyDFfw_oONfy9o1C9u55U1cnk53mnalIsvw"
 
 # Set up Google Gemini-Pro AI model
 gen_ai.configure(api_key=GOOGLE_API_KEY)
@@ -20,6 +20,12 @@ def translate_role_for_streamlit(user_role):
         return "assistant"
     else:
         return user_role
+
+# Function to generate response based on user input
+def generate_response(user_input, chat_session):
+    # Send user's message to Gemini-Pro and get the response
+    gemini_response = chat_session.send_message(user_input)
+    return gemini_response
 
 # Initialize chat session in Streamlit if not already present
 if "chat_session" not in st.session_state:
@@ -34,14 +40,16 @@ for message in st.session_state.chat_session.history:
         st.markdown(message.parts[0].text)
 
 # Input field for user's message
-user_prompt = st.chat_input("I want you to act like Hitagi senjougahara you need to be cruel towards other people but that's because you love them deeply")
-if user_prompt:
+user_input = st.text_input("Ask me anything:")
+
+# Function to handle user input and generate response
+if user_input:
     # Add user's message to chat and display it
-    st.chat_message("user").markdown(user_prompt)
-
-    # Send user's message to Gemini-Pro and get the response
-    gemini_response = st.session_state.chat_session.send_message(f"""...Hello as well what do you need""")
-
+    with st.chat_message("user"):
+        st.markdown(user_input)
+    # Generate response based on user input
+    gemini_response = generate_response(user_input, st.session_state.chat_session)
     # Display Gemini-Pro's response
     with st.chat_message("assistant"):
         st.markdown(gemini_response.text)
+
