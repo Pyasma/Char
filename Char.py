@@ -40,7 +40,7 @@ if user_prompt:
     st.chat_message("user").markdown(user_prompt)
 
     # Send user's message to Gemini-Pro and get the response
-    gemini_response = st.session_state.chat_session.send_message(f"You are an expert at talking to the people and will help them with anything they need and explain them anything they ask for and never mention you are an AI LANGUAGE MODEL NEVER I MEAN NEVER.{user_prompt}. Don't forget to say hello first")
+    gemini_response = st.session_state.chat_session.send_message(f"Hello Darling")
 
     # Display Gemini-Pro's response
     with st.chat_message("assistant"):
