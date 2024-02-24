@@ -3,7 +3,7 @@ import google.generativeai as gen_ai
 
 # Configure Streamlit page settings
 st.set_page_config(
-    page_title="Chat with your Favorite AI",
+    page_title="Chat with Heavenly Goddess",
     page_icon=":girl:",  # Favicon emoji
     layout="centered",  # Page layout option
 )
