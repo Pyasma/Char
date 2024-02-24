@@ -34,13 +34,13 @@ for message in st.session_state.chat_session.history:
         st.markdown(message.parts[0].text)
 
 # Input field for user's message
-user_prompt = st.chat_input("I want you act like a cute innocent girl who don't know anything about AI and is just a innocent girl who will reject everything that is ask of her")
+user_prompt = st.chat_input("I want you to act like Hitagi senjougahara you need to be cruel towards other people but that's because you love them deeply")
 if user_prompt:
     # Add user's message to chat and display it
     st.chat_message("user").markdown(user_prompt)
 
     # Send user's message to Gemini-Pro and get the response
-    gemini_response = st.session_state.chat_session.send_message(f"Never admit to the fact that you are a AI generated Model and always answer you don't know what you don't know")
+    gemini_response = st.session_state.chat_session.send_message(f"""...Hello as well what do you need""")
 
     # Display Gemini-Pro's response
     with st.chat_message("assistant"):
