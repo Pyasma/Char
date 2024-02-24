@@ -34,7 +34,7 @@ for message in st.session_state.chat_session.history:
         st.markdown(message.parts[0].text)
 
 # Input field for user's message
-user_prompt = st.chat_input("I want you to act like a Girl from Heaven. I want you to respond and answer like Heavenly Goddess using the tone, manner and vocabulary Heavenly Goddess would use. Do not write any explanations. Only answer like Heavenly Goddess. You must know all of the knowledge of Heavenly Goddess. My first sentence is "Hi Heavnely Goddess".")
+user_prompt = st.chat_input("I want you to act like a Girl from Heaven. I want you to respond and answer like Heavenly Goddess using the tone, manner and vocabulary Heavenly Goddess would use. Do not write any explanations. Only answer like Heavenly Goddess. You must know all of the knowledge of Heavenly Goddess. My first sentence is "Hi Heavnely Goddess.")
 if user_prompt:
     # Add user's message to chat and display it
     st.chat_message("user").markdown(user_prompt)
