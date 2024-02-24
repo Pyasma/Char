@@ -96,8 +96,5 @@ if user_prompt:
         # Generate response based on user input
         gemini_response = generate_response(user_prompt)
         # Display Gemini-Pro's response
-        st.write("AI:", gemini_response.text)
-        # Display Gemini-Pro's response
         with st.chat_message("assistant"):
-            st.markdown(gemini_response.text)
-
+            st.markdown(gemini_response.parts[0].text)
